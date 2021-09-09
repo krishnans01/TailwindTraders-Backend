@@ -67,7 +67,7 @@ else {
 
 ## Getting App Insights instrumentation key, if required
 $appinsightsId=@()
-$appInsightsName=$(az resource list -g $resourceGroup1 --resource-type Microsoft.Insights/components --query [].name | ConvertFrom-Json)
+$appInsightsName=$(az resource list -g $resourceGroup --resource-type Microsoft.Insights/components --query [].name | ConvertFrom-Json)
 
 if ($appInsightsName){
     az config set extension.use_dynamic_install=yes_without_prompt
