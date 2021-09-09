@@ -35,7 +35,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: imageclassifer
+                name: imageclassifier
                 port:
                   number: 80
   {{- end }}
