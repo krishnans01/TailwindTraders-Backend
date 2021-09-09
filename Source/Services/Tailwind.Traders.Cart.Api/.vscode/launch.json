@@ -12,7 +12,8 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/bin/www",
-            "preLaunchTask": "bridge-to-kubernetes.service",
+            "runtimeExecutable": "/usr/local/bin/node",
+            "preLaunchTask": "bridge-to-kubernetes.resource",
             "env": {
                 "GRPC_DNS_RESOLVER": "native"
             }

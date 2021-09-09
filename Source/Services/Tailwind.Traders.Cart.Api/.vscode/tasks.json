@@ -2,15 +2,17 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "bridge-to-kubernetes.service",
-			"type": "bridge-to-kubernetes.service",
-			"service": "cart",
+			"label": "bridge-to-kubernetes.resource",
+			"type": "bridge-to-kubernetes.resource",
+			"resource": "cart",
+			"resourceType": "service",
 			"ports": [
 				3000
 			],
-			"targetCluster": "tailwindtradersakscnnn2hudd2oae",
+			"targetCluster": "tailwindtradersakscoepfqyganrkm",
 			"targetNamespace": "twt",
-			"isolateAs": "twtsample-f325"
+			"useKubernetesServiceEnvironmentVariables": false,
+			"isolateAs": "jessicad-76d8"
 		}
 	]
 }
