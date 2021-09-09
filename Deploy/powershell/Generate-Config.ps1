@@ -67,12 +67,12 @@ else {
 
 ## Getting App Insights instrumentation key, if required
 $appinsightsId=@()
-$appInsightsName=$(az resource list -g $resourceGroup --resource-type Microsoft.Insights/components --query [].name | ConvertFrom-Json)
+$appInsightsName=$(az resource list -g $resourceGroup1 --resource-type Microsoft.Insights/components --query [].name | ConvertFrom-Json)
 
-If ($appInsightsName){
+if ($appInsightsName){
+    az config set extension.use_dynamic_install=yes_without_prompt
     $appinsightsId = $(az monitor app-insights component show --app $appInsightsName -g $resourceGroup --query instrumentationKey -o json | ConvertFrom-Json)
 } 
-
 Write-Host "App Insights Instrumentation Key: $appinsightsId" -ForegroundColor Yellow
 
 
