@@ -39,7 +39,5 @@ spec:
                 name: mobilebff
                 port:
                   number: 80
-              serviceName: mobilebff
-              servicePort: http
   {{- end }}
 {{- end }}
