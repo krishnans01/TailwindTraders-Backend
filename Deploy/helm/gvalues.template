@@ -76,8 +76,8 @@ inf:
 # Shared ingress configurations
 ingress:
   enabled: true
+  ingressClassName: "nginx"
   annotations:
-    kubernetes.io/ingress.class: {{ingressclass}}
     ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ingress.kubernetes.io/rewrite-target: /{{ingressrewritetarget}}
