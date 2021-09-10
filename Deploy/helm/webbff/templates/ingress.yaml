@@ -1,4 +1,4 @@
-{{- if .Values.ingress.enabled -}}
+{{- if .Values.webbff.ingress.enabled -}}
 {{- $fullName := include "tt-webbff.fullname" . -}}
 {{- $ingressPath := .Values.inf.ingress.webbff.path -}}
 
@@ -11,15 +11,15 @@ metadata:
     chart: {{ template "tt-webbff.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-{{- with .Values.ingress.annotations }}
+{{- with .Values.webbff.ingress.annotations }}
   annotations:
 {{ toYaml . | indent 4 }}
 {{- end }}
 spec:
-  ingressClassName: {{ .Values.ingress.ingressClassName }}
-{{- if .Values.ingress.tls }}
+  ingressClassName: {{ .Values.webbff.ingress.ingressClassName }}
+{{- if .Values.webbff.ingress.tls }}
   tls:
-  {{- range .Values.ingress.tls }}
+  {{- range .Values.webbff.ingress.tls }}
     - hosts:
       {{- range .hosts }}
         - {{ . }}
@@ -28,7 +28,7 @@ spec:
   {{- end }}
 {{- end }}
   rules:
-  {{- range .Values.ingress.hosts }}
+  {{- range .Values.webbff.ingress.hosts }}
     - host: {{ . }}
       http:
         paths:

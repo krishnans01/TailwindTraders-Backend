@@ -73,22 +73,26 @@ inf:
     registerusers: {{rewardsregistration}}
     registrationusersurl: http://rewards-registration/UserService.svc
 
-# Shared ingress configurations
 ingress:
-  enabled: true
-  ingressClassName: "nginx"
-  annotations:
-    ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    ingress.kubernetes.io/rewrite-target: /{{ingressrewritetarget}}
-    nginx.ingress.kubernetes.io/rewrite-target: /{{ingressrewritetarget}}
-#  hosts:
-#    - <guid>.<region>.aksapp.io   # NOT NEEDED. SET BY SCRIPTS
+  enabled: false
+  
+# Shared ingress configurations
+webbff:
+  ingress:
+    enabled: true
+    ingressClassName: "nginx"
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      # nginx.ingress.kubernetes.io/ssl-redirect: "false"
+      nginx.ingress.kubernetes.io/use-regex: "true"
+      nginx.ingress.kubernetes.io/rewrite-target: /$2
+  #  hosts:
+  #    - <guid>.<region>.aksapp.io   # NOT NEEDED. SET BY SCRIPTS
 
-  tls:
-  - secretName: chart-example-tls
-    hosts:
-      - chart-example.local
+    tls:
+    - secretName: chart-example-tls
+      hosts:
+        - chart-example.locall
 
 sec:
   issuer: {{secissuer}}
