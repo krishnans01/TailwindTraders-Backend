@@ -92,7 +92,7 @@ ingress:
 #  hosts:
 #    - <guid>.<region>.aksapp.io   # NOT NEEDED. SET BY SCRIPTS
 
-  tls: true
+  # tls:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
