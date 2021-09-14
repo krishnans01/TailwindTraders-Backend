@@ -8,7 +8,6 @@ class CartController {
         return req.headers["x-tt-name"];
     }
 
-    // gnome bug
     async addProduct(req, res) {
         const item = req.body;
         const doc = await this.shoppingCartDao.addItem(item);
