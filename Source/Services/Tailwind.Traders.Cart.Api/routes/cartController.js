@@ -48,8 +48,10 @@ class CartController {
         const user = this.retrieveUser(req);
         
         const typeid = req.query.type;
-        if (!typeid && !user) {
-            res.status(400).send({ message: "'user' or 'productType' missing" });
+        if (!typeid){
+            res.status(400).send({ message: "'productType' missing" });
+        } else if (!user) {
+            res.status(400).send({ message: "'user' missing ('productType': " + typeid + ")" });
         } else {
             const items = await this.recommendedDao.findRelated(typeid, user);
             res.json(items);
