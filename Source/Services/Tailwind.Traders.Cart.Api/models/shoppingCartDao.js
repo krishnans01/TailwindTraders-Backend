@@ -21,7 +21,7 @@ class ShoppingCartDao {
 
   async find(email) {
     const querySpec = {
-      query: "SELECT * FROM r WHERE r.detailProduct.email=@email",
+      query: "SELECT * FROM r WHERE r.detailProduct.email='"" + email + "'",
       parameters: [
         {
           name: "@email",
